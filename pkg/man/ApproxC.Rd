@@ -25,3 +25,6 @@ where class is the number of servers required. This method of calculation allows
 to stop on some depth of dynamics, thus allowing to calculate an approximate value in
 faster time. The constant is valid only for the model with simultaneous service.
 }
+\examples{
+ApproxC(s=2,p=c(.5,.5), depth=3)
+}

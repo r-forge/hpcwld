@@ -1,6 +1,6 @@
 Package: hpcwld
-Version: 0.6-1
-Date: 2017-06-19
+Version: 0.6-2
+Date: 2022-04-22
 Title: High Performance Cluster Models Based on Kiefer-Wolfowitz Recursion
 Authors@R: c(person("Alexander", "Rumyantsev", role = c("aut", "cre"), email = "ar0@sampo.ru"))
 Author: Alexander Rumyantsev [aut, cre]
@@ -14,5 +14,4 @@ Description: Probabilistic models describing the behavior
 	Functions provided to import/export workload traces in Standard Workload Format (swf).
 	Stability condition of the model may be verified either exactly, or approximately.
 License: GPL (>= 2)
-URL: http://www.r-project.org, http://cluster.krc.karelia.ru
 RoxygenNote: 7.1.2

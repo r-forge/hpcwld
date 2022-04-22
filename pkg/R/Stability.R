@@ -12,7 +12,7 @@
 #' @param p vector of class distribution
 #' @param depth By default calculates up to groups of 3 tasks. When depth=s, calculates the exact value. However, depth=s might take a bit more time.
 #' @return The value of a constant C in the relation lambda/mu < C is returned
-#' @example 
+#' @examples
 #' ApproxC(s=2,p=c(.5,.5), depth=3)
 #' @export
 # 
@@ -27,6 +27,8 @@ ApproxC=function(s,p,depth=3){
 	return(C)
 }
 
+#' This function gives the maximal throughput of a two-server supercomputer (Markov) model with various service speeds, various rates of classes and random speed scaling at arrival/depature
+#' 
 #' This function gives the maximal throughput of a two-server supercomputer (Markov) model with various service speeds, various rates of classes and random speed scaling at arrival/depature
 #' 
 #' @param p1 probability of class 1 arrival
