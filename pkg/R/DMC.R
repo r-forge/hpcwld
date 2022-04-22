@@ -1,3 +1,7 @@
+#' @importFrom stats ecdf
+#' @importFrom stats median
+NULL
+
 #' Distributional Measure of Correlation
 #' 
 #' This is a suggested by Dror Feitelson measure of correlation for dependent

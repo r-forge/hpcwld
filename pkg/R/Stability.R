@@ -1,3 +1,6 @@
+#' @importFrom stats convolve
+NULL
+
 #' Approximate, dynamic iterative computation of the stability constant for a workload of a High Performance Cluster model
 #' 
 #' This function calculates the constant C that is used in the stability criterion

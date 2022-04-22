@@ -29,9 +29,11 @@ need to manually fill in the header of the file in order to completely
 prepare the resulting SWF file.
 }
 \examples{
+\dontrun{
 data(HPC_KRC)
 tmp=data.frame(T=HPC_KRC$interarrival, S=HPC_KRC$service, N=HPC_KRC$cores_used, D=HPC_KRC$delay)
 DataToSWF(tmp)
+}
 }
 \references{
 Feitelson, D.G. and Tsafrir, D. and Krakov D. 2012 Experience with the Parallel Workloads Archive. Technical Report 2012-6, School of Computer Science and Engineering, the Hebrew University April, 2012, Jerusalem, Israel

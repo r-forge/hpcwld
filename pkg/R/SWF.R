@@ -1,3 +1,6 @@
+#' @importFrom utils write.table
+NULL
+
 #' Convertor from a dataframe to Standart Workload Format
 #' 
 #' Note that this is only a wrapper for the ToSWF command with a dataframe
@@ -18,9 +21,11 @@
 #' @return Nothing is returned, but a file is created in the current working directory
 #' (with default name output.swf) containing the converted data.
 #' @examples 
+#' \dontrun{
 #' data(HPC_KRC)
 #' tmp=data.frame(T=HPC_KRC$interarrival, S=HPC_KRC$service, N=HPC_KRC$cores_used, D=HPC_KRC$delay)
 #' DataToSWF(tmp)
+#' }
 #' @export
 # 
 DataToSWF <-
@@ -90,8 +95,10 @@ FromSWF <-
 #' @param filename The file to store the converted workload (output.swf by default)
 #' @return Nothing is returned, but a file is created in the current working directory (with default name output.swf) containing the converted data.
 #' @examples
+#' \dontrun{
 #' data(HPC_KRC)
 #' ToSWF(HPC_KRC$interarrival, HPC_KRC$service, HPC_KRC$cores_requested, HPC_KRC$delay)
+#' }
 #' @export
 # 
 ToSWF <-
