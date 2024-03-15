@@ -53,8 +53,8 @@ Wld <-
       else
         for(j in 1:N[i])
           workload[i+1,j]=max(workload[i,N[i]]+S[i,j]-T[i],0)
-        for(j in (N[i]+1):m)
-          if(j<=m && m>1)
+        if(N[i]<m)
+          for(j in (N[i]+1):m)
             workload[i+1,j]=max(workload[i,j]-T[i],0)
         workload[i+1,]=sort(workload[i+1,])
     }
