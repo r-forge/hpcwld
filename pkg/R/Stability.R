@@ -30,6 +30,62 @@ ApproxC=function(s,p,depth=3){
 	return(C)
 }
 
+#' This function gives the stability constant of a multiresource job queue with service times exponentially distributed and homogeneous across customer classes
+#' 
+#' This function gives the stability constant of a multiresource job queue with service times exponentially distributed and homogeneous across customer classes
+#' 
+#' @param P array where index is the multidimensional class of the customer, indexed from 0, should have P[1,...,1]=0
+#' @return constant C in the stability condition lambda C<mu, where lambda is the input rate, and mu is the service rate
+#' @export
+# 
+C=function(P){
+  res=dim(P)-1 # because the first coordinate at each dimension is for 0 units of resource required
+  nres=length(res)
+  M=sum(res)
+  p=function(ind,P){ # index can have zero coordinates
+    if(any(ind<0)) return(0)
+    return(P[matrix(ind+1,ncol=length(ind),byrow = T)])
+  }
+  conv=function(ind,lev,P){
+    #ind=c(2,3)
+    #browser()
+    r=0
+    if(lev==1) return(p(ind,P))
+    else{
+      gr=expand.grid(sapply(ind,function(x)0:x,simplify = FALSE)) # prepare sequences from 0 to elements of x, and put them into array as "outer product"
+      for(i in 1:nrow(gr)) {
+        cur=as.integer(gr[i,])
+        r=r+p(cur,P)*conv(ind-cur,lev-1,P)
+      }
+    }
+    return(r)
+  }
+  headofqueue=function(ind,P){
+    vec=res-ind
+    r=0
+    if(all(vec==0)) return(1) # if all of the resources are completely busy, 
+    # the head-of-line customer is arbitrary,
+    # otherwise since 0 resources required is allowed, 
+    # we compute everything
+    gr=expand.grid(sapply(1:nres,function(x)0:vec[x],simplify = FALSE))
+    for(i in 1:nrow(gr))
+      r=r+p(as.integer(gr[i,]),P)
+    return(1-r)
+  }
+
+  C=0
+  #browser()
+  for(i in 1:M){
+    gr=expand.grid(sapply(1:nres,function(x)0:res[x],simplify = FALSE))
+    for(j in 1:nrow(gr)){
+      cur=as.integer(gr[j,])
+      C=C+sum(conv(cur,i,P)*headofqueue(cur,P))/i
+    }
+  }
+  return(C)
+}
+
+
 #' This function gives the maximal throughput of a two-server supercomputer (Markov) model with various service speeds, various rates of classes and random speed scaling at arrival/depature
 #' 
 #' This function gives the maximal throughput of a two-server supercomputer (Markov) model with various service speeds, various rates of classes and random speed scaling at arrival/depature

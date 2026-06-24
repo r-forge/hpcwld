@@ -1,6 +1,6 @@
 Package: hpcwld
 Version: 0.7
-Date: 2024-03-15
+Date: 2026-06-24
 Title: High Performance Cluster Models Based on Kiefer-Wolfowitz Recursion
 Authors@R: c(person("Alexander", "Rumyantsev", role = c("aut", "cre"), email = "ar0@sampo.ru"))
 Description: Probabilistic models describing the behavior 
@@ -12,6 +12,9 @@ Description: Probabilistic models describing the behavior
 	Functions provided to import/export workload traces in Standard Workload Format (swf).
 	Stability condition of the model may be verified either exactly, or approximately.
 	Stability analysis: see Rumyantsev and Morozov (2017) <doi:10.1007/s10479-015-1917-2>,
-	workload recursion: see Rumyantsev (2014) <doi:10.1109/PDCAT.2014.36>.
+	Stability of two-server model with speed scaling: see Rumyantsev et al (2022) <doi:10.1007/s10479-022-04830-0>,
+	Stability of multiresource job queue: see Rumyantsev (2026) <doi:10.66721/k71ssj38>,
+	Workload recursion: see Rumyantsev (2014) <doi:10.1109/PDCAT.2014.36>.
 License: GPL (>= 2)
-RoxygenNote: 7.3.1
+Encoding: UTF-8
+RoxygenNote: 7.3.3
